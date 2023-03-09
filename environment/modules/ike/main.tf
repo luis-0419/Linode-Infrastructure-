@@ -12,16 +12,16 @@ provider "linode" {
 }
 
 resource "linode_lke_cluster" "foobar" {
-    k8s_version = var.k8s_version
-    label = var.label
-    region = var.region
-    tags = var.tags
+  k8s_version   = var.k8s_version
+  label         = var.label
+  region        = var.region
+  tags          = var.tags
 
-    dynamic "pool" {
-        for_each = var.pools
-        content {
-            type  = pool.value["type"]
-            count = pool.value["count"]
-        }
+  dynamic "pool" {
+      for_each = var.pools
+      content {
+          type  = pool.value["type"]
+          count = pool.value["count"]
+      }
     }
 }

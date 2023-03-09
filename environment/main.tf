@@ -12,5 +12,10 @@ provider "linode" {
 }
 
 module "IKE" {
-source = "./modules/ike"
+source      = "./modules/ike"
+
+k8s_version = var.k8s_version
+label       = var.label
+region      = var.region
+tags        = var.tags
 }
